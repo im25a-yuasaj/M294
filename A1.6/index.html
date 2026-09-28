@@ -7,14 +7,8 @@
 </head>
 <body>
     <main>
-        <section id="salut">
-        </section>
     </main>
     <script>
-        const section = document.getElementById('salut')
-        let salut = section.innerHTML
-        console.log(salut)
-
         const name = prompt("Heisst du?")
         const now = new Date()
         const hour = now.getHours()
@@ -26,8 +20,7 @@
         } else {
             msg = 'Gute Nacht'
         }
-        salut += `<p>${msg} ${name}</p>`
-        section.innerHTML = salut
+        alert(`${msg} ${name}`)
     </script>
 </body>
 </html>
