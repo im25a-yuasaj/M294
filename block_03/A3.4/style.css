@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+button {
+    border: black solid 1px;
+    border-radius: 10px;
+    list-style: none;
+    padding: 10px;
+}
+
+ol {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+li {
+    border: greenyellow solid 1px;
+    border-radius: 10px;
+    list-style: none;
+    padding: 10px;
+}
+
+li span {
+    display: block;
+}
+.country {
+    font-weight: bold;
+}
