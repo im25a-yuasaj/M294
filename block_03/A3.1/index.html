@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>0</h1>
+    <h1>0</h1>
+    <button ></button>
+    <button></button>
+    <div>
+        <div class="goal"></div>
+        <img src="soccer-ball-svgrepo-com.svg" width="10%">
+        <div class="goal"></div>
+    </div>
+    <script>
+        let h1 = document.getElementsByTagName('h1')
+        let btn = document.getElementsByTagName('button')
+        let div = document.getElementsByTagName('div')[0]
+        let goal = document.getElementsByClassName('goal')
+        let img = div.getElementsByTagName('img')
+        div.style.width = '100%'
+        div.style.height = '500px'
+        div.style.backgroundColor = 'green'
+        div.style.position = 'relative'
+        img[0].style.position = 'absolute'
+        img[0].style.transform = 'translate(-50%, -50%)'
+        for (const item of goal) {
+            item.style.backgroundColor = 'rgba(250, 250, 250, 0.8)'
+            item.style.width = '20px'
+            item.style.height = '100%'
+            item.style.position = 'absolute'
+            item.style.top = '0'
+        }
+        goal[0].style.left = '10px'
+        goal[1].style.right = '10px'
+        div.addEventListener('click', (event) => {
+            const rect = div.getBoundingClientRect()
+            img[0].style.left = `${event.clientX - rect.left}px`
+            img[0].style.top = `${event.clientY - rect.top}px`
+            if (event.clientX <= 50) updateNumber(0)
+            if (event.clientX >= 1400 ) updateNumber(1)
+        })
+        function updateNumber(i) {
+            let value = parseInt(h1[i].innerText)
+            value += 1
+            h1[i].innerText = value
+        }
+        btn[0].onclick = function() {updateNumber(0)}
+        btn[1].onclick = function() {updateNumber(1)}
+
+
+    </script>
+</body>
+</html>
