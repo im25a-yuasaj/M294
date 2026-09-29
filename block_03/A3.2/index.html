@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Spoofify</title>
+</head>
+<body>
+    <header>
+        <h1>Spoofify</h1>
+        <button onclick="#birthweek">Top of your birthweek</button>
+        <button onclick="#albumGallery">Latst releases randomized</button>
+    </header>
+    <main>
+        <article id="birthweek">
+            <h2>Your spoofed overview</h2>
+            <p>Welcome to Spoofify, teh rip-off music streaming service of ICT Module 291!</p>
+            <section>
+                <h3>Top of your birthweek</h3>
+                <ol>
+                    <li><strong>Jump</strong> y Kris Kross</li>
+                    <li><strong>My Lovin' (You're Never Gonna Get It)</strong> by En Vogue</li>
+                    <li><strong>Bohemian Rhapsody</strong> by Queen</li>
+                    <li><strong>Save The Best For Last</strong> by Vanessa Williams</li>
+                    <li><strong>Live And Learn</strong> by Joe Public</li>
+                </ol>
+            </section>
+            <h3>Latest releases randomized</h3>
+            <button>Add three more</button><button>Remove first three</button><button id="shuffle">Randomize</button>
+            <section id="album-gallery"class="album-gallery">
+                <img src="https://loremflickr.com/480/480/cd,album,cover?random=1" alt="album1">
+                <img src="https://loremflickr.com/480/480/cd,album,cover?random=2" alt="album2">
+                <img src="https://loremflickr.com/480/480/cd,album,cover?random=3" alt="album3">
+                <img src="https://loremflickr.com/480/480/cd,album,cover?random=4" alt="album4">
+                <img src="https://loremflickr.com/480/480/cd,album,cover?random=5" alt="album5">
+                <img src="https://loremflickr.com/480/480/cd,album,cover?random=6"  alt="Random album cover">
+            </section>
+            <section id="player">
+                <p>Now playing: <span id="now-playing">-</span></p>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <p>© 2023 Spooky Example, Inc.</p>
+    </footer>
+    <script>
+        let albumGallery = document.getElementsByClassName('album-gallery')[0]
+        let btn = document.getElementsByTagName('button')
+        function addThree() {
+            for (let i = 0; i < 3; i++){
+                let newAlbum = document.createElement('img')
+                let random = Math.random(1, 100)
+                newAlbum.src = `https://loremflickr.com/480/480/cd,album,cover?random=${random}`
+                albumGallery.prepend(newAlbum)
+            }
+        }
+        function removeThree() {
+            for (let i = 0; i < 3; i++){
+                firstAlbum = albumGallery.querySelectorAll('img')[0]
+                firstAlbum.remove()
+            }
+        }
+        btn[2].onclick = addThree
+        btn[3].onclick = removeThree
+        
+        let albums = albumGallery.querySelectorAll('img')
+        albums.forEach(album =>{
+            album.addEventListener('click', function(event) {
+                let old = document.getElementsByTagName('sector')[0]
+                let sector = document.createElement('sector')
+                let article = document.getElementsByTagName('article')[0]
+                if (old) old.remove()
+                article.append(sector)
+                showTrackList(album)
+            })
+        })
+        
+
+        function showTrackList(album) {
+            let sector = document.getElementsByTagName('sector')
+            sector = sector[sector.length-1]
+            let h3 = document.createElement('h3')
+            h3.innerText = `Track List of ${album.alt}`
+            sector.append(h3)
+            let list = document.createElement('ol')
+            list.classList = 'tracklist'
+            let trackitem;
+            sector.append(list)
+            let nowPlaying = document.getElementById('now-playing')
+            for (let i = 0; i < 10; i++){
+                trackitem = document.createElement('li')
+                trackitem.innerText = `Track ${i + 1}`
+                trackitem.addEventListener('click', function () {
+                    nowPlaying.innerText = `${this.innerText} – ${album.alt}`
+                })
+                list.append(trackitem)
+            }
+        }
+        function shuffleAlbums() {
+            let imgs = Array.from(albumGallery.querySelectorAll('img'))
+            while (imgs.length > 0) {
+                let i = Math.floor(Math.random() * imgs.length)
+                albumGallery.append(imgs[i])
+                imgs.splice(i, 1)
+            }
+        }
+        document.getElementById('shuffle').onclick = shuffleAlbums       
+    </script>
+</body>
+</html>

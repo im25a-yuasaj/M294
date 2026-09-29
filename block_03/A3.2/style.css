@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #1cd761;
+
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+header h1 {
+    flex-grow: 1;
+    font-size: 805
+}
+header button {
+    margin: 20px 5px;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    border: white solid 1px;
+    border-radius: 20px;
+    background-color: transparent;
+    color: white;
+}
+
+.album-gallery {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.album-gallery img {
+    width: 50%;
+    padding: 5px;
+}
+
+footer {
+    padding: 30px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+}
+
+footer p {
+    justify-content: center;
+    align-items: center;
+}
