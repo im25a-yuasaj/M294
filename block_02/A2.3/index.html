@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Platzhalter</h1>
+    <p>Lorem ipsom</p>
+    <ul>
+        <li>Element 1</li>
+        <li>Element 2</li>
+    </ul>
+
+    <script>
+        document.body.style.backgroundColor = prompt('Wähle eine Hintergrundfarbe')
+        let h1 = document.getElementsByTagName('h1')[0]
+        let p = document.getElementsByTagName('p')[0]
+        let ul = document.getElementsByTagName('ul')[0]
+        let li = document.createElement('li')
+        h1.innerText = 'Josh'
+        p.classList = 'large'
+        p.style.fontSize = '2em'
+        li.innerText = 'Element 3'
+        ul.append(li)
+        let sec_li = ul.querySelectorAll('li')[1]
+        sec_li.remove()
+    </script>
+</body>
+</html>
