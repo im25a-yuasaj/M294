@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                background-color: pink;
+            }
+            div {
+                background-color: papayawhip;
+                border: 1px solid palevioletred;
+                border-radius: 10px;
+                width: 500px;
+            }
+            label, input, select {
+                display: block;
+                border-radius: 0;
+            }
+            label {
+                margin-top: 20px;
+            }
+            input, select {
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>My best Friends</h1>
+        <div>
+            <h2>Hans Muster</h2>
+            <p>Endenstrasse 20<br>8004 Zürich<br><a>hans.muster@emaple.com</a></p>
+        </div>
+        <h2>Add new friend</h2>
+        <form name="friend">
+            <label for="firstname">Vorname</label>
+            <input type="text" name="firstname">
+
+            <label for="lastname">Nachname</label>
+            <input type="text" name="lastname">
+
+            <label for="street">Strasse</label>
+            <input type="text" name="street">
+
+            <label for="zip">PLZ</label>
+            <input type="text" name="zip">
+
+            <label for="place">Ort</label>
+            <input type="text" name="place">
+
+            <label for="email">Email</label>
+            <input type="email" name="email">
+
+            <label for="you">Du-Zie</label>
+            <input type="checkbox" name="you" value="true">
+
+            <label for="connection">Von wo kennst du diese Person</label>
+            <select>
+                <option value="Schule">Schule</option>
+                <option value="Geschäft">Geschäft</option>
+                <option value="Privat">Privat</option>
+            </select>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+        <script>
+            const addFriend = document.forms.friend
+            addFriend.addEventListener('submit', (e) => {
+                for (value of addFriend) {
+                    console.log(value.value)
+                }
+            })
+
+        </script>
+    </body>
+</html>

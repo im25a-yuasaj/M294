@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        label, input {
+            display: block;
+        }
+        form {
+            font-size: 0.7em;
+        }
+        label {
+            font-size: 0.8rem;
+            margin: 1em 0 0 0;
+        }
+        input:valid {
+            border: 1px solid green
+        }
+        input:invalid {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <form name="register">
+        <label for="email">E-Mail-Addresse</Address></label>
+        <input type="email" name="email">
+
+        <label for="password">Passwort</label>
+        <input type="password" name="password" minlength="8">
+        <label for="passwordConfirm">Passwortbestätigung</label>
+
+        <input type="password" name="passwordConfirm">
+        <label for="agb">AGB akzeptieren</label>
+
+        <input type="checkbox" name="agb">
+        <button type="submit">Registrieren</button>
+    </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', () =>{
+            const registerForm = document.forms.register;
+            registerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                console.log('form submitted')
+            });
+
+            registerForm.passwordConfirm.onblur = () => {
+                console.log(registerForm.passwordConfirm.value)
+                if(registerForm.password.value != registerForm.passwordConfirm.value) {
+                    registerForm.passwordConfirm.setCustomValidity('Passwords do not match!')
+                } else {
+                    registerForm.passwordConfirm.setCustomValidity('')
+                }
+            }
+        })
+
+        </script>
+</body>
+</html>
