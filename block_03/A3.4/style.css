@@ -1,12 +1,14 @@
 body {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 button {
     border: black solid 1px;
     border-radius: 10px;
     list-style: none;
     padding: 10px;
+    flex-grow: 1;
 }
 
 ol {
