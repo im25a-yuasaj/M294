@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <form name="getMsg" onsubmit="showMsg()">
+            <label for="name">Name: </label>
+            <input type="text" id="name">
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+    <script>
+        
+        function showMsg() {
+            const name = document.forms.getMsg.name.value
+            const now = new Date()
+            const hour = now.getHours()
+            let msg = '';
+            if (hour <= 10){
+                msg = 'Guten Morgen.'
+            } else if (hour <= 16) {
+                msg = 'Guten Tag'
+            } else {
+                msg = 'Gute Nacht'
+            }
+            alert(`${msg} ${name}`)
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+main {
+    display: grid;
+    grid: repeat(4, 1fr) / repeat(5, 1fr);
+    grid-gap: 1rem;
+    margin: 0 auto
+}
+
+.invisible {
+    visibility: hidden;
+}
+.visible {
+    visibility: visible;
+}
