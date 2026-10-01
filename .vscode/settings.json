@@ -1,0 +1,5 @@
+{
+    "editor.suggestOnTriggerCharacters": false,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "editor.inlineSuggest.enabled": true
+}
