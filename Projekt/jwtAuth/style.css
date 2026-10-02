@@ -1,0 +1,239 @@
+:root {
+    --bg: #f3f6fb;
+    --surface: #ffffff;
+    --surface-alt: #eef5ff;
+    --text: #1f2a37;
+    --muted: #667085;
+    --border: #dfe7f3;
+    --hover: #f3f7ff;
+    --accent: #4f8cff;
+    --accent-hover: #3d7af5;
+    --accent-soft: #eaf2ff;
+    --danger: #d7485f;
+    --danger-bg: #fff1f3;
+    --radius: 14px;
+    --gap: 14px;
+    --shadow: 0 14px 30px rgba(31, 42, 55, 0.12);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eef4ff 0%, #f7f9fc 100%);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+main {
+    max-width: 700px;
+    margin: 48px auto 0;
+    padding: 0 16px 32px;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 28px 24px 24px;
+    background: var(--surface);
+    border: 1px solid rgba(223, 231, 243, 0.9);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+h2 {
+    margin: 8px 0 0;
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--text);
+}
+
+#login {
+    align-self: flex-end;
+    min-width: 120px;
+    margin-bottom: 4px;
+}
+
+/* Inputs and buttons */
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    min-width: 0;
+    width: 100%;
+    padding: 11px 14px;
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    font-size: 1.05rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(79, 140, 255, 0.12);
+    outline: none;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--accent);
+}
+
+button {
+    padding: 10px 18px;
+    background: linear-gradient(135deg, var(--accent) 0%, #6aa8ff 100%);
+    color: #fff;
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    box-shadow: 0 8px 18px rgba(79, 140, 255, 0.25);
+}
+
+button:hover {
+    background: linear-gradient(135deg, var(--accent-hover) 0%, #3e7af4 100%);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+input:focus-visible,
+button:focus-visible {
+    outline: 2px solid #3b6ef5;
+    outline-offset: 2px;
+}
+
+/* Forms */
+
+.addTask form,
+#updateDialog form,
+#loginDialog form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+}
+
+.addTask form {
+    align-items: center;
+}
+
+.addTask input[type="text"] {
+    flex: 1 1 220px;
+}
+
+#loginDialog,
+#updateDialog {
+    width: min(100%, 420px);
+    padding: 24px;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+
+#loginDialog::backdrop,
+#updateDialog::backdrop {
+    background: rgba(17, 24, 39, 0.45);
+}
+
+#loginDialog form,
+#updateDialog form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 12px 16px;
+}
+
+#loginDialog label,
+#updateDialog label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+#loginDialog button,
+#updateDialog button {
+    grid-column: 1 / -1;
+    margin-top: 8px;
+}
+
+#updateDialog input[type="checkbox"] {
+    justify-self: start;
+}
+
+/* Task list */
+
+.tasklist {
+    margin-top: -4px;
+}
+
+#tasklist {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 8px 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#tasklist li {
+    min-width: 0;
+    padding: 12px 14px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    background: var(--surface-alt);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+#tasklist li:hover {
+    background: var(--hover);
+    border-color: var(--border);
+}
+
+#tasklist li.completed {
+    color: var(--muted);
+    text-decoration: line-through;
+    background: #f6f8fa;
+}
+
+#tasklist > button {
+    padding: 7px 12px;
+    background: transparent;
+    color: var(--danger);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid rgba(215, 73, 95, 0.7);
+    box-shadow: none;
+}
+
+#tasklist > button:hover {
+    background: var(--danger-bg);
+    transform: none;
+}
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Taskplaner</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <main>
+            <article>
+                <section class="addTask">
+                    <form name="addTask">
+                        <input type="text" name="title">
+                        <button type="submit">Submit</button>
+                    </form>
+                </section>
+
+                <dialog id="updateDialog">
+                    <form>
+                        <label for="title">Title</label>
+                        <input type="text" name="title">
+                        <label for="completed">Completed</label>
+                        <input type="checkbox" name="completed">
+                        <button type="submit">Submit</button>
+                    </form>
+                </dialog>
+
+                <section class="tasklist">
+                    <h2>List of Task</h2>
+                    <ul id="tasklist">
+                    </ul>
+                </section>
+            </article>
+        </main>
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form name="comment">
+            <input type="text" name="username">
+            <input type="text" name="comment">
+            <button type="submit">Submit</button>
+        </form>
+        <script>
+            const commentForm = document.forms.comment
+            commentForm.addEventListener('submit', (e) => {
+                e.preventDefault()
+                sendComment()
+            })
+            async function getToken() {
+                const response = await fetch('http://10.68.4.3/challenges/1', {
+                    method: 'POST',
+                })
+                const token = response.headers.get('Authorization')
+                return token
+            }
+            async function sendComment() {
+                const token = await getToken()
+                const response = await fetch('http://10.68.4.3/comments', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json', 'Authorization': token},
+                    body: JSON.stringify({ message: commentForm.comment.value, username: commentForm.username.value })
+                })
+                console.log(response)
+            }            
+        </script>
+    </body>
+</html>
